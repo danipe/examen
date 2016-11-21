@@ -26,11 +26,13 @@ public class Putadon {
 		buscaLetra(frase,letra);
 	
 	}
+	
 	public static String pideFrase(){
 		System.out.println("Introduce tu frase");
 		frase = sc.nextLine();
 		return frase;
 	}
+	
 	public static char pideLetra(){
 		System.out.println("Introduce la letra a buscar");
 		letra = sc.nextLine().charAt(0); //charAt(0) devuelve la primera letra
@@ -40,11 +42,17 @@ public class Putadon {
 	//Buscamos las letras
 	public static void buscaLetra(String frase, char letra){
 		for(int i=0;i<frase.length();i++){
-			if(letra==frase.charAt(i)){
+			if(compruebaLetraPos(letra,frase,i)){
 				numRepeticiones++;
 				System.out.println("Letra "+letra+" encontrada en la posicion "+i);
 			}
 		}
 		System.out.println("Total repeticiones "+numRepeticiones);
+	}
+	
+	public static boolean compruebaLetraPos(char letra, String frase, int i){
+		
+		return letra==frase.charAt(i) ;
+		
 	}
 }
