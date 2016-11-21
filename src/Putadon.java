@@ -11,24 +11,34 @@ import java.util.Scanner;
  * 
  */
 public class Putadon {
+	//Variables inicialización de manera pública para que lo puedan leer todos los metodos
+	public static String frase="";
+	public static int numPos=0;
+	public static int numRepeticiones=0;
+	public static char letra=0;
+	
+	//Pedimos datos
+	public static Scanner sc=new Scanner(System.in);
 	
 	public static void main(String[] args) {
-		//Variables inicialización
-		String frase="";
-		int numPos=0;
-		int numRepeticiones=0;
-		char letra=0;
-		
-		//Pedimos datos
-		Scanner sc=new Scanner(System.in);
-		
+		frase=pideFrase();
+		letra=pideLetra();
+		buscaLetra(frase,letra);
+	
+	}
+	public static String pideFrase(){
 		System.out.println("Introduce tu frase");
 		frase = sc.nextLine();
-		
+		return frase;
+	}
+	public static char pideLetra(){
 		System.out.println("Introduce la letra a buscar");
 		letra = sc.nextLine().charAt(0); //charAt(0) devuelve la primera letra
+		return letra;
 		
-		//Buscamos las letras
+	}
+	//Buscamos las letras
+	public static void buscaLetra(String frase, char letra){
 		for(int i=0;i<frase.length();i++){
 			if(letra==frase.charAt(i)){
 				numRepeticiones++;
@@ -36,6 +46,5 @@ public class Putadon {
 			}
 		}
 		System.out.println("Total repeticiones "+numRepeticiones);
-	
 	}
 }
